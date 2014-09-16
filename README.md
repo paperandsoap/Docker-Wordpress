@@ -100,6 +100,12 @@ docker commit 12345678904b5 mysnapshot
 # explore this filesystem using bash (for example)
 docker run -t -i mysnapshot /bin/bash
 </pre>
+<b>Other Wordpress Important Notes:</b>
+<ul>
+  <li>You can change the credential of the MySQL in docker file, after setting the (MYSQL_USER,MYSQL_PASS) variables</li>
+  <li>You can also change the wordpress database name, after setting the (WORDPRESS_DBNAME)</li>
+  <li>The hostname will be prefixed with the port during the installation of the Wordpress</li>
+</ul>
 <b>Related Projects</b>
 <ul>
   <li>Docker-Apache2 : https://github.com/kaushalkishorejaiswal/Docker-Apache2 </li>
