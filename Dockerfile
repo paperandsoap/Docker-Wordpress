@@ -4,7 +4,7 @@
 ############################################################
 
 # Set the base image to Ubuntu
-FROM ubuntu:latest
+FROM ubuntu:12.04
 
 # File Author / Maintainer
 MAINTAINER Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
