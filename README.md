@@ -90,7 +90,7 @@ sudo docker run --name apache_ins -d -p 8082:80 -v /var/www/kaushal:/var/www apa
 Read more details of Apache and PHP <a href="https://github.com/kaushalkishorejaiswal/Docker-Apache2PHP">Click Here</a>
 </pre>
 <pre>
-To view the Files of your container:
+<b>To view the Files of your container:</b>
 # find ID of your running container:
 docker ps
 
