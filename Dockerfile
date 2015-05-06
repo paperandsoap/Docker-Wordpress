@@ -4,7 +4,7 @@
 ############################################################
 
 # Set the base image to Ubuntu
-FROM ubuntu:12.04
+FROM ubuntu:14.04
 
 # File Author / Maintainer
 MAINTAINER Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
@@ -27,13 +27,12 @@ ADD apache2-start.sh /apache2-start.sh
 ADD mysql-start.sh /mysql-start.sh
 ADD run.sh /run.sh
 
-# Give the execution permissions
+# execution permissions
 RUN chmod 755 /*.sh
 
-# Add the Configurations files
+# configuration
 ADD my.cnf /etc/mysql/conf.d/my.cnf
 ADD supervisord-lamp.conf /etc/supervisor/conf.d/supervisord-lamp.conf
-
 
 # Remove pre-installed database
 RUN rm -rf /var/lib/mysql/*
@@ -50,19 +49,18 @@ ADD create_database.sh /create_database.sh
 ADD mysql_user.sh /mysql_user.sh
 RUN chmod 755 /*.sh
 
-# Enable apache mods.
+# Enable apache mods
 RUN a2enmod php5
 RUN a2enmod rewrite
 
-
 # Add volumes for MySQL 
-VOLUME  ["/etc/mysql", "/var/lib/mysql" ]
+VOLUME  ["/etc/mysql", "/var/lib/mysql"]
 #VOLUME /var/www
 
-# Installing wordpress
+# Installing WordPress
 RUN rm -rf /var/www/
 ADD http://wordpress.org/latest.tar.gz /wordpress.tar.gz
-RUN tar xvzf /wordpress.tar.gz 
+RUN tar xvf /wordpress.tar.gz 
 RUN mv /wordpress /var/www/
 RUN chown -R www-data:www-data /var/www/
 
